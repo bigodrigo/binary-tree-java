@@ -43,7 +43,7 @@ public class ArvoreBinaria {
         }
     }
 
-        // Method to count the number of elements on the left side (excluding the root)
+    // Método para contar número de elementos à esquerda (excluindo a raiz)
     public int contadorElementosEsquerda() {
         return contadorElementosEsquerda(raiz.getEsq());
     }
@@ -53,16 +53,16 @@ public class ArvoreBinaria {
             return 0;
         }
 
-        int leftCount = contadorElementosEsquerda(root.getEsq());
-        int rightCount = contadorElementosEsquerda(root.getDir());
+        int contaEsquerda = contadorElementosEsquerda(root.getEsq());
+        int contaDireita = contadorElementosEsquerda(root.getDir());
 
-        return leftCount + rightCount + 1; // 1 for the current node
+        return contaEsquerda + contaDireita + 1; // 1 for the current node
     }
 
-    // Method to print the binary tree structure using preorder traversal
-    public void printTree() {
+    // Método de impressão da estrutura da Árvore Binária
+    public void imprimirArvore() {
         if (raiz == null) {
-            System.out.println("The tree is empty.");
+            System.out.println("Árvore vazia.");
             return;
         }
 
@@ -76,7 +76,7 @@ public class ArvoreBinaria {
 
             StringBuilder spaces = new StringBuilder();
             for (int i = 0; i < level; i++) {
-                spaces.append("  "); // Add two spaces for each level
+                spaces.append("  "); // Adiciona padding esquerda!
             }
 
             if (currentNode == null) {
@@ -101,5 +101,3 @@ public class ArvoreBinaria {
         }
     }
 }
-
-
