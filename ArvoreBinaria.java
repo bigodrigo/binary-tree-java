@@ -1,7 +1,5 @@
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayList;
 import java.util.Stack;
-
 
 public class ArvoreBinaria {
     private No raiz;
@@ -43,20 +41,29 @@ public class ArvoreBinaria {
         }
     }
 
-    // Método para contar número de elementos à esquerda (excluindo a raiz)
+    // Método para contar e listar nós à esquerda (excluindo a raiz)
     public int contadorElementosEsquerda() {
-        return contadorElementosEsquerda(raiz.getEsq());
-    }
-
-    private int contadorElementosEsquerda(No root) {
-        if (root == null) {
+        if (raiz == null) {
+            System.out.println("Árvore vazia.");
             return 0;
         }
+        ArrayList<No> esquerda = new ArrayList<>();
+        listarNosEsquerda(raiz, esquerda);
+        return esquerda.size();
+    }
 
-        int contaEsquerda = contadorElementosEsquerda(root.getEsq());
-        int contaDireita = contadorElementosEsquerda(root.getDir());
+    private void listarNosEsquerda(No atual, ArrayList<No> esquerda) {
+        if (atual == null) {
+            return;
+        }
 
-        return contaEsquerda + contaDireita + 1; // 1 for the current node
+        // Armazena o nó esquerdo na lista (se existir)
+        if (atual.getEsq() != null) {
+            esquerda.add(atual.getEsq());
+        }
+
+        listarNosEsquerda(atual.getEsq(), esquerda);
+        listarNosEsquerda(atual.getDir(), esquerda);
     }
 
     // Método de impressão da estrutura da Árvore Binária

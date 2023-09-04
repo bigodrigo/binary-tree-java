@@ -10,6 +10,23 @@ public class Main {
         tree.insert(888);
         tree.insert(999);
 
+        // // Insert elements into the binary tree
+        // tree.insert(50);
+        // tree.insert(30);
+        // tree.insert(20);
+        // tree.insert(40);
+        // tree.insert(70);
+        // tree.insert(60);
+        // tree.insert(80);
+
+        // // Add more elements for a larger tree
+        // tree.insert(10);
+        // tree.insert(5);
+        // tree.insert(45);
+        // tree.insert(55);
+        // tree.insert(75);
+        // tree.insert(85);
+
         // Perform preorder traversal to display the tree
         System.out.println("Preorder Traversal:");
         tree.preorderTraversal();
